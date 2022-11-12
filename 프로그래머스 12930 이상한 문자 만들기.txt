@@ -1,0 +1,39 @@
+package programmers;
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        String[] str = s.split("");
+        System.out.println(str[3] + "2");
+        
+        int idx = 0;
+        for(int i=0; i<str.length; i++) {
+            if(str[i].equals(" ")) {
+                idx = 0;
+            } else if(idx % 2 == 0) {
+                str[i] = str[i].toUpperCase();
+                idx++;
+            } else if(idx % 2 != 0) {
+                str[i] = str[i].toLowerCase();
+                idx++;
+            }
+            answer += str[i];
+        } 
+        
+        return answer;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+    	Solution sol = new Solution();
+    	String msg = "try hello world";
+    	sol.solution(msg);
+    	
+    	int num = 0;
+    	int num2 = 2;
+    	if(num / num2 == 0) {
+    		System.out.println("나눠져요");
+    	}
+    }
+}
