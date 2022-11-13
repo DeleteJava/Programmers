@@ -1,0 +1,36 @@
+package programmers;
+
+
+class Solution {
+    public String solution(String s, int n) {
+    	char[] tmp = s.toCharArray();
+    	String answer = "";
+    	for(char ch : tmp) {
+    		if(ch == 32) answer += " ";
+    		else {
+    			if(ch <= 90) {
+    				ch += n;
+    				if(ch > 90) ch -= 26;
+    			}
+    			else {
+    					ch += n;
+    					if(ch > 122) ch -= 26;
+    			}
+    			answer += ch;
+    		}
+    			
+    	}
+    	
+        return answer;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+    	Solution sol = new Solution();
+    	String msg = "a B z";
+    	int num = 4;
+    	sol.solution(msg, num);
+    	
+    }
+}
