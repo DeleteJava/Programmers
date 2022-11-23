@@ -1,0 +1,90 @@
+package programmers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public int[] solution(int[] answers) {
+    	
+		int[] man1 = {1, 2, 3, 4, 5};
+		int[] man2 = {2, 1, 2 ,3 ,2 ,4 ,2 ,5};
+		int[] man3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
+    	
+		List<Integer> list1 = new ArrayList<Integer>();
+		List<Integer> list2 = new ArrayList<Integer>();
+		List<Integer> list3 = new ArrayList<Integer>();
+		List<Integer> listResult = new ArrayList<Integer>();
+		while(list1.size() < answers.length) {
+		
+			for(int n : man1) {
+				list1.add(n);
+			}
+		}
+		
+		while(list2.size() < answers.length) {
+			for(int n : man2) {
+				list2.add(n);
+			}
+			
+		}
+		
+		while(list3.size() < answers.length) {
+			for(int n : man3) {
+				list3.add(n);
+			}
+		}
+		
+		
+		int count1 = 0;
+		int count2 = 0;
+		int count3 = 0;
+		
+		
+		for(int i = 0; i < answers.length; i++) {
+			if(answers[i] == list1.get(i)) {
+				count1++;
+			}
+			
+			if(answers[i] == list2.get(i)) {
+				count2++;
+			}
+			
+			if(answers[i] == list3.get(i)) {
+				count3++;
+			}
+		}
+
+		int max = Math.max(Math.max(count1, count2), count3);
+		
+		if(max == count1) listResult.add(1);
+		if(max == count2) listResult.add(2);
+		if(max == count3) listResult.add(3);
+    	
+//		System.out.println(list1);
+//		System.out.println(list2);
+//		System.out.println(list3);
+//		System.out.println(listResult);
+//    	
+//    	System.out.println(count1);
+//    	System.out.println(count2);
+//    	System.out.println(count3);
+        int[] answer = new int[listResult.size()];
+        for(int i = 0; i < answer.length; i++) {
+        	answer[i] = listResult.get(i);
+        }
+//        System.out.println(Arrays.toString(answer));
+        return answer;
+    }
+}
+        
+
+
+public class Main {
+    public static void main(String[] args) {
+    	Solution sol = new Solution();
+    	int[] arr = {1,3,2,4,2,1};
+
+    	sol.solution(arr);
+    	
+    }
+}
